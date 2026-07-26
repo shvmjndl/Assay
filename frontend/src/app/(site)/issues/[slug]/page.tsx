@@ -29,7 +29,7 @@ export default async function IssuePage({ params }: Props) {
 
   return (
     <div className="paper-field">
-      <div className="mx-auto max-w-[64rem] px-6 py-20 pl-8 md:px-10 md:pl-14 md:py-28">
+      <div className="mx-auto max-w-[70rem] px-5 py-12 md:px-8 md:py-16">
         <IssueReader issue={issue} />
       </div>
     </div>

@@ -1,18 +1,18 @@
 import type { Metadata } from "next";
 import {
-  Bricolage_Grotesque,
   IBM_Plex_Mono,
+  IBM_Plex_Sans,
+  Newsreader,
   Source_Serif_4,
 } from "next/font/google";
 import { Providers } from "@/app/providers";
 import { Grain } from "@/components/layout/Grain";
-import { StrataRail } from "@/components/layout/StrataRail";
 import { siteConfig } from "@/config/site";
 import "./globals.css";
 
-const bricolage = Bricolage_Grotesque({
+const newsreader = Newsreader({
   subsets: ["latin"],
-  variable: "--font-bricolage",
+  variable: "--font-newsreader",
   weight: ["400", "500", "600", "700"],
 });
 
@@ -20,6 +20,12 @@ const body = Source_Serif_4({
   subsets: ["latin"],
   variable: "--font-body",
   weight: ["400", "500", "600"],
+});
+
+const sans = IBM_Plex_Sans({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  weight: ["400", "500", "600", "700"],
 });
 
 const mono = IBM_Plex_Mono({
@@ -42,19 +48,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en-GB">
       <body
-        className={`${bricolage.variable} ${body.variable} ${mono.variable} antialiased`}
+        className={`${newsreader.variable} ${body.variable} ${sans.variable} ${mono.variable} antialiased`}
         style={
           {
-            "--font-display": "var(--font-bricolage)",
-            "--font-sans": "var(--font-bricolage)",
+            "--font-display": "var(--font-newsreader)",
           } as React.CSSProperties
         }
       >
         <Providers>
           <Grain />
-          <StrataRail />
           {children}
         </Providers>
       </body>

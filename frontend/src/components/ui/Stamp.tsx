@@ -1,6 +1,3 @@
-"use client";
-
-import { motion, useReducedMotion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 type StampProps = {
@@ -18,26 +15,23 @@ export function Stamp({
   as = "span",
   onClick,
 }: StampProps) {
-  const reduce = useReducedMotion();
   const classes = cn(
-    "inline-flex items-center rounded-full border px-3 py-1 font-mono text-[10.5px] uppercase tracking-[0.1em] transition-all duration-300",
+    "inline-flex items-center border px-2.5 py-0.5 font-sans text-[10px] font-semibold uppercase tracking-[0.08em] shadow-stamp transition-all duration-150 active:translate-y-px active:shadow-press",
     active
-      ? "border-[#5a6b45]/45 bg-[#5a6b45]/[0.14] text-[#4a5340]"
-      : "border-[#2b2d33]/10 bg-soft text-mute hover:border-[#5a6b45]/35 hover:text-[#5a6b45]",
+      ? "border-ink bg-ink text-paper"
+      : "border-[var(--rule)] bg-[rgba(255,250,240,0.45)] text-mute hover:border-ink hover:text-ink",
     className,
   );
 
   if (as === "button") {
     return (
-      <motion.button
+      <button
         type="button"
         onClick={onClick}
         className={cn(classes, "focus-ring cursor-pointer")}
-        whileTap={reduce ? undefined : { scale: 0.96 }}
-        transition={{ type: "spring", stiffness: 500, damping: 30 }}
       >
         {children}
-      </motion.button>
+      </button>
     );
   }
 

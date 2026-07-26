@@ -1,16 +1,9 @@
-import { SiteFooter } from "@/components/layout/SiteFooter";
-import { SiteHeader } from "@/components/layout/SiteHeader";
+import { SiteShell } from "@/components/layout/SiteShell";
 
 export default function SiteLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  return (
-    <div className="earth-field relative flex min-h-screen flex-col">
-      <SiteHeader />
-      <main className="flex-1">{children}</main>
-      <SiteFooter />
-    </div>
-  );
+  return <SiteShell>{children}</SiteShell>;
 }

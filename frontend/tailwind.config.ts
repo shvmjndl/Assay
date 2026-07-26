@@ -10,6 +10,7 @@ export default {
   theme: {
     extend: {
       colors: {
+        board: "var(--board)",
         paper: "var(--paper)",
         ink: "var(--ink)",
         mute: "var(--mute)",
@@ -21,19 +22,24 @@ export default {
         line: "var(--line)",
         wash: "var(--wash)",
         moss: "var(--moss)",
+        rose: "var(--rose)",
       },
       fontFamily: {
-        display: ["var(--font-display)", "system-ui", "sans-serif"],
+        display: ["var(--font-display)", "Georgia", "serif"],
         body: ["var(--font-body)", "Georgia", "serif"],
         sans: ["var(--font-sans)", "system-ui", "sans-serif"],
         mono: ["var(--font-mono)", "ui-monospace", "monospace"],
       },
+
       maxWidth: {
         measure: "38rem",
       },
       boxShadow: {
-        stamp: "0 1px 0 rgba(43, 45, 51, 0.12)",
-        lift: "0 18px 50px -28px rgba(43, 45, 51, 0.35)",
+        stamp:
+          "0 1px 0 rgba(28, 25, 20, 0.2), inset 0 1px 0 rgba(255, 252, 245, 0.12)",
+        press: "inset 0 1px 2px rgba(28, 25, 20, 0.18)",
+        sheet:
+          "0 18px 40px -18px rgba(40, 32, 22, 0.35), 0 4px 12px -4px rgba(40, 32, 22, 0.18)",
       },
       transitionDuration: {
         400: "400ms",

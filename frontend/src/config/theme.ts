@@ -1,46 +1,46 @@
 /**
- * Field palette — grassy, grainy, earthy.
+ * Assay — physical newsprint
  */
 export const themeStory = {
-  name: "Meadow ledger",
+  name: "Digital edition",
   oneLiner:
-    "Meadow paper, moss for living marks, umber earth, ink for words — grain like dry grass.",
+    "Warm fiber stock, absorbed ink, navy mark — a paper you can almost touch.",
   pigments: [
     {
-      id: "meadow",
-      role: "Ground",
-      hex: "#C5C2A4",
-      note: "Grass-warm paper — the field under everything",
+      id: "board",
+      role: "Desk",
+      hex: "#D4CBC0",
+      note: "Reading surface under the sheet",
     },
     {
-      id: "moss",
-      role: "Living",
-      hex: "#5A6B45",
-      note: "Links, marks, the green of care",
+      id: "newsprint",
+      role: "Paper",
+      hex: "#EBE5D6",
+      note: "Warm pulp stock — the page itself",
     },
     {
       id: "ink",
-      role: "Words",
-      hex: "#2B2D33",
-      note: "Primary ink — what you read",
+      role: "Ink",
+      hex: "#1C1914",
+      note: "Absorbed black — headlines and body",
     },
     {
-      id: "charcoal",
+      id: "navy",
+      role: "Accent",
+      hex: "#052962",
+      note: "Kickers, links — modern paper blue",
+    },
+    {
+      id: "signal-red",
+      role: "Signal",
+      hex: "#B01010",
+      note: "Rare emphasis — edition flash",
+    },
+    {
+      id: "soft",
       role: "Shade",
-      hex: "#3A3A3A",
-      note: "Quieter text — secondary",
-    },
-    {
-      id: "raw-umber",
-      role: "Earth",
-      hex: "#5C4A34",
-      note: "Years underway, hard decisions",
-    },
-    {
-      id: "soil-dusk",
-      role: "Depth",
-      hex: "#4A5340",
-      note: "Hover — moss into soil",
+      hex: "#E0D8C8",
+      note: "Cuttings and hover wash",
     },
   ],
 } as const;

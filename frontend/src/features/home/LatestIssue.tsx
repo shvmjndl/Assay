@@ -1,9 +1,6 @@
 import Link from "next/link";
-import { Reveal } from "@/components/motion/Reveal";
-import { SectionLabel } from "@/components/ui/SectionLabel";
-import { Stamp } from "@/components/ui/Stamp";
 import { getAllIssues } from "@/lib/issue-store";
-import { formatIssueNumber } from "@/lib/utils";
+import { formatDate, formatIssueNumber } from "@/lib/utils";
 
 export async function LatestIssue() {
   const issues = await getAllIssues();
@@ -11,40 +8,39 @@ export async function LatestIssue() {
   if (!issue) return null;
 
   return (
-    <section className="border-t border-line">
-      <div className="mx-auto max-w-[64rem] px-6 py-24 pl-8 md:px-10 md:pl-14 md:py-32">
-        <Reveal>
-          <SectionLabel>Latest in the log</SectionLabel>
-        </Reveal>
-
-        <Reveal delay={0.08}>
+    <section>
+      <div className="mx-auto max-w-[72rem] px-5 py-10 md:px-7 md:py-12">
+        <div className="flex items-baseline justify-between gap-4 border-b-[3px] border-ink pb-2">
+          <p className="kicker">Lead story</p>
           <Link
-            href={`/issues/${issue.slug}`}
-            className="group mt-10 block rounded-xl border border-line bg-soft/60 p-7 transition-all duration-400 hover:border-[#7e98aa]/35 hover:bg-[#e4b6be]/[0.12] hover:shadow-[0_8px_40px_-12px_rgba(126,152,170,0.22)] focus-ring md:p-10"
+            href="/issues"
+            className="ink-link font-sans text-[0.68rem] font-semibold uppercase tracking-[0.12em] text-mark"
           >
-            <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-              <div className="max-w-2xl">
-                <div className="flex flex-wrap items-center gap-3">
-                  <span className="font-mono text-sm text-[#5f7050]">
-                    № {formatIssueNumber(issue.number)}
-                  </span>
-                  <Stamp>{issue.yearsUnderway} yrs underway</Stamp>
-                </div>
-                <h3 className="mt-5 font-display text-3xl font-semibold tracking-tight text-ink md:text-[2.75rem] md:leading-[1.05]">
-                  {issue.builder.name}
-                  <span className="text-[#e4b6be]"> — </span>
-                  {issue.product.name}
-                </h3>
-                <p className="mt-4 font-body text-lg leading-[1.7] text-mute">
-                  {issue.frame}
-                </p>
-              </div>
-              <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-[#7e98aa] opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100">
-                Read →
-              </span>
-            </div>
+            All issues →
           </Link>
-        </Reveal>
+        </div>
+
+        <Link
+          href={`/issues/${issue.slug}`}
+          className="group mt-7 grid gap-6 focus-ring md:grid-cols-[1.4fr_0.85fr] md:gap-10"
+        >
+          <div>
+            <p className="byline">
+              Issue № {formatIssueNumber(issue.number)} ·{" "}
+              {formatDate(issue.publishedAt)} · {issue.yearsUnderway} years
+              underway
+            </p>
+            <h3 className="mt-2 font-display text-[clamp(1.75rem,3.8vw,2.75rem)] font-bold leading-[1.06] tracking-[-0.02em] text-ink transition-colors duration-150 group-hover:text-mark">
+              {issue.builder.name} — {issue.product.name}
+            </h3>
+            <p className="read-cue mt-5 font-sans text-[0.72rem] font-bold uppercase tracking-[0.12em] text-mark">
+              Continue reading →
+            </p>
+          </div>
+          <p className="border-t border-[var(--rule)] pt-4 font-body text-[1.02rem] leading-[1.7] text-mute md:border-l md:border-t-0 md:pl-8 md:pt-0">
+            {issue.frame}
+          </p>
+        </Link>
       </div>
     </section>
   );

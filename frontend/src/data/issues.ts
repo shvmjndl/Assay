@@ -1,4 +1,4 @@
-import type { DiscoverItem, Issue } from "@/types";
+import type { Issue } from "@/types";
 
 export const seedIssues: Issue[] = [
   {

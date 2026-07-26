@@ -1,20 +1,19 @@
 "use client";
 
 import Link from "next/link";
-import { motion, useReducedMotion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 type Variant = "ink" | "ghost" | "mark" | "primary";
 
 const variants: Record<Variant, string> = {
   primary:
-    "bg-[#5a6b45] text-white hover:bg-[#4a5340] border border-transparent",
+    "bg-mark text-paper shadow-stamp hover:bg-indigo border border-ink/10",
   mark:
-    "bg-[#5c4a34] text-white hover:bg-[#4a5340] border border-transparent",
+    "bg-rose text-paper shadow-stamp hover:bg-indigo border border-ink/10",
   ink:
-    "bg-[#2b2d33] text-white hover:bg-[#4a5340] border border-transparent",
+    "bg-ink text-paper shadow-stamp hover:bg-mark border border-ink/15 active:shadow-press",
   ghost:
-    "bg-transparent text-ink border border-[#2b2d33]/20 hover:border-[#5a6b45]/50 hover:bg-[#5a6b45]/[0.1]",
+    "bg-[rgba(255,250,240,0.35)] text-ink border border-ink/30 shadow-stamp hover:border-ink hover:bg-soft active:shadow-press",
 };
 
 type Props = {
@@ -36,40 +35,28 @@ export function SoftButton({
   onClick,
   type = "button",
 }: Props) {
-  const reduce = useReducedMotion();
   const classes = cn(
-    "inline-flex items-center justify-center gap-2 rounded-lg px-6 py-3 font-sans text-[0.84rem] font-medium tracking-wide transition-all duration-300 focus-ring disabled:cursor-not-allowed disabled:opacity-40",
+    "inline-flex items-center justify-center gap-2 rounded-none px-5 py-2.5 font-sans text-[0.78rem] font-semibold uppercase tracking-[0.08em] transition-all duration-150 focus-ring active:translate-y-px disabled:cursor-not-allowed disabled:opacity-40",
     variants[variant],
     className,
   );
 
-  const motionProps = reduce
-    ? {}
-    : {
-        whileHover: { y: -2 },
-        whileTap: { scale: 0.975, y: 0 },
-        transition: { type: "spring" as const, stiffness: 380, damping: 22 },
-      };
-
   if (href) {
     return (
-      <motion.div className="inline-flex" {...motionProps}>
-        <Link href={href} className={classes}>
-          {children}
-        </Link>
-      </motion.div>
+      <Link href={href} className={classes}>
+        {children}
+      </Link>
     );
   }
 
   return (
-    <motion.button
+    <button
       type={type}
       disabled={disabled}
       onClick={onClick}
       className={classes}
-      {...motionProps}
     >
       {children}
-    </motion.button>
+    </button>
   );
 }

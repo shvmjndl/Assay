@@ -23,20 +23,20 @@ export default async function WritePage() {
 
   return (
     <div className="paper-field">
-      <div className="mx-auto max-w-[64rem] px-6 py-20 pl-8 md:px-10 md:pl-14 md:py-28">
-        <SectionLabel>Submit for the log</SectionLabel>
-        <h1 className="mt-5 max-w-2xl font-display text-5xl font-semibold tracking-tight text-ink md:text-6xl">
+      <div className="mx-auto max-w-[70rem] px-5 py-12 md:px-8 md:py-16">
+        <SectionLabel>Letters & submissions</SectionLabel>
+        <h1 className="mt-3 max-w-2xl font-display text-4xl font-bold tracking-tight text-ink md:text-5xl">
           Write
         </h1>
-        <p className="mt-5 max-w-xl font-body text-lg leading-[1.7] text-mute">
+        <p className="mt-4 max-w-xl border-b-[3px] border-ink pb-8 font-body text-lg leading-[1.7] text-mute">
           Same template as every Assay issue — problem, architecture, hardest
           tradeoff, timeline with stuck periods, what you’d do differently, open
           roadmap. Fill it honestly. Publish goes live on the site.
         </p>
-        <p className="mt-4 font-mono text-[11px] uppercase tracking-[0.12em] text-[#5a6b45]">
+        <p className="mt-6 byline text-mark">
           Signed in as {session.user.name ?? session.user.email}
           {" · "}
-          <Link href="/signin" className="underline decoration-[#5a6b45]/40 underline-offset-4">
+          <Link href="/signin" className="underline decoration-mark/40 underline-offset-4">
             Account
           </Link>
         </p>

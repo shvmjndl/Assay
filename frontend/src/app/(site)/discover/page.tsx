@@ -15,16 +15,16 @@ export default async function DiscoverPage() {
 
   return (
     <div className="paper-field">
-      <div className="mx-auto max-w-[64rem] px-6 py-20 pl-8 md:px-10 md:pl-14 md:py-28">
+      <div className="mx-auto max-w-[70rem] px-5 py-12 md:px-8 md:py-16">
         <SectionLabel>Survey</SectionLabel>
-        <h1 className="mt-5 max-w-2xl font-display text-5xl font-semibold tracking-tight text-ink md:text-6xl">
+        <h1 className="mt-3 font-display text-4xl font-bold tracking-tight text-ink md:text-5xl">
           Discover
         </h1>
-        <p className="mt-5 max-w-lg font-body text-lg leading-[1.7] text-mute">
+        <p className="mt-4 max-w-xl border-b-[3px] border-ink pb-8 font-body text-lg leading-[1.7] text-mute">
           Primary sort: years underway. Filters are craft stamps —
           original engineering, long-term work, open source, small teams.
         </p>
-        <div className="mt-14">
+        <div className="mt-10">
           <DiscoverBoard items={items} />
         </div>
       </div>

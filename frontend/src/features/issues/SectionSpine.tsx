@@ -34,12 +34,10 @@ export function SectionSpine() {
   return (
     <nav
       aria-label="Issue sections"
-      className="sticky top-28 hidden max-h-[70vh] w-40 shrink-0 overflow-auto lg:block"
+      className="sticky top-8 hidden max-h-[70vh] w-36 shrink-0 overflow-auto lg:block"
     >
-      <p className="mb-4 font-mono text-[10px] uppercase tracking-[0.2em] text-fog/70">
-        Paper trail
-      </p>
-      <ol className="relative space-y-1 border-l border-line pl-4">
+      <p className="kicker mb-3">In this issue</p>
+      <ol className="relative space-y-0 border-l border-[var(--rule)] pl-3">
         {issueSections.map((section) => {
           const isActive = active === section.id;
           return (
@@ -47,16 +45,14 @@ export function SectionSpine() {
               <a
                 href={`#${section.id}`}
                 className={cn(
-                  "block py-1.5 font-sans text-[0.8rem] transition-all duration-300",
-                  isActive
-                    ? "text-[#5a6b45] font-medium"
-                    : "text-mute hover:text-ink",
+                  "block py-1.5 font-sans text-[0.75rem] font-medium transition-colors duration-200",
+                  isActive ? "text-mark" : "text-mute hover:text-ink",
                 )}
               >
                 <span
                   className={cn(
-                    "absolute -left-[3px] mt-2 h-1.5 w-1.5 rounded-full transition-all duration-300",
-                    isActive ? "bg-[#5a6b45]" : "bg-[#2b2d33]/15",
+                    "absolute -left-[3.5px] mt-2 h-1.5 w-1.5 rounded-full transition-colors duration-200",
+                    isActive ? "bg-mark" : "bg-ink/20",
                   )}
                 />
                 {section.label}

@@ -23,24 +23,24 @@ export default async function SignInPage({ searchParams }: Props) {
 
   return (
     <div className="paper-field">
-      <div className="mx-auto grid max-w-[64rem] gap-12 px-6 py-20 pl-8 md:grid-cols-[0.9fr_1.1fr] md:px-10 md:pl-14 md:py-28">
+      <div className="mx-auto grid max-w-[70rem] gap-10 px-5 py-12 md:grid-cols-[0.9fr_1.1fr] md:gap-12 md:px-8 md:py-16">
         <div>
           <SectionLabel>Account</SectionLabel>
-          <h1 className="mt-5 font-display text-5xl font-semibold tracking-tight text-ink">
+          <h1 className="mt-3 font-display text-4xl font-bold tracking-tight text-ink md:text-5xl">
             Sign in
           </h1>
-          <p className="mt-5 max-w-md font-body text-lg leading-[1.7] text-mute">
+          <p className="mt-4 max-w-md border-b-[3px] border-ink pb-8 font-body text-lg leading-[1.7] text-mute">
             Quiet identity for readers and builders. Sign in to publish your
             product journey with the Assay template.
           </p>
-          <ul className="mt-10 space-y-4 font-sans text-sm text-mute">
-            <li className="border-l-2 border-[#5f7050]/50 pl-4">
+          <ul className="mt-8 space-y-4 font-body text-sm text-mute">
+            <li className="border-l-2 border-ink pl-4">
               Write your issue with the full paper trail
             </li>
-            <li className="border-l-2 border-[#e4b6be]/70 pl-4">
+            <li className="border-l-2 border-mark pl-4">
               Publish live to Issues and Discover
             </li>
-            <li className="border-l-2 border-[#7e98aa]/50 pl-4">
+            <li className="border-l-2 border-rose pl-4">
               Same rigid template — no launch-day fluff
             </li>
           </ul>

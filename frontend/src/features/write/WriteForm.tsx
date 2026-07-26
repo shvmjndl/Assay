@@ -13,10 +13,10 @@ type MetricRow = { label: string; value: string };
 type SourceRow = { label: string; url: string };
 
 const fieldClass =
-  "w-full rounded-lg border border-[#2b2d33]/12 bg-soft px-4 py-3 font-body text-sm text-ink placeholder:text-mute/50 transition-all duration-300 focus-ring focus:border-[#5a6b45]/40 focus:bg-[#c5c2a4]";
+  "w-full border border-[var(--rule)] bg-[rgba(255,250,240,0.4)] px-4 py-3 font-body text-sm text-ink shadow-press placeholder:text-fog transition-colors focus-ring focus:border-ink focus:bg-[rgba(255,252,245,0.65)]";
 
 const labelClass =
-  "mb-2 block font-mono text-[10px] uppercase tracking-[0.14em] text-[#5a6b45]";
+  "mb-2 block font-sans text-[10px] font-bold uppercase tracking-[0.12em] text-mark";
 
 function Field({
   label,
@@ -348,7 +348,7 @@ Store`}
           />
         </Field>
         <div className="grid gap-5 md:grid-cols-2">
-          <div className="space-y-4 rounded-xl border border-line bg-soft/40 p-5">
+          <div className="space-y-4 border border-[var(--rule)] bg-[rgba(255,250,240,0.28)] p-5 shadow-stamp">
             <Field label="Side A — label">
               <input
                 className={fieldClass}
@@ -366,7 +366,7 @@ Store`}
               />
             </Field>
           </div>
-          <div className="space-y-4 rounded-xl border border-line bg-soft/40 p-5">
+          <div className="space-y-4 border border-[var(--rule)] bg-[rgba(255,250,240,0.28)] p-5 shadow-stamp">
             <Field label="Side B — label">
               <input
                 className={fieldClass}
@@ -594,7 +594,7 @@ Store`}
 
       <div className="border-t border-line pt-10">
         {error && (
-          <p className="mb-5 rounded-lg border border-[#5c4a34]/30 bg-[#5c4a34]/10 px-4 py-3 font-body text-sm text-[#5c4a34]">
+          <p className="mb-5 border border-rose/40 bg-rose/10 px-4 py-3 font-body text-sm text-rose">
             {error}
           </p>
         )}
